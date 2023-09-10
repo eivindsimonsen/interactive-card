@@ -1,17 +1,25 @@
 .bg-main-background {
   overflow: hidden;
-  img {
-    width: 100%;
-    height: 100vh;
+  position: fixed;
+
+  @media (max-width: 1117px) {
+    left: 0;
+    right: 0;
   }
 
   &-desktop {
+    width: 100%;
+    height: 100vh;
+
     @media (max-width: 1117px) {
       display: none;
     }
   }
 
   &-mobile {
+    width: 100%;
+    height: 35vh;
+
     @media (min-width: 1118px) {
       display: none;
     }
