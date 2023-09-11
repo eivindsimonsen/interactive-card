@@ -40,11 +40,15 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 500px;
-  margin: 0 auto;
+  max-width: 440px;
+  font-size: $font-size;
+  font-weight: 700;
+  color: $veryDarkViolet;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 
   & > * {
-    margin: 10px 0px;
+    margin: 16px 0px;
   }
 
   label {
@@ -53,8 +57,24 @@ form {
   }
 
   input {
-    padding: 13px 10px;
+    padding: 15px 10px;
     border-radius: 7px;
     border: 1px solid $lightGrayishViolet;
+    margin-top: 8px;
+  }
+
+  .expiration-date-cvc {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    & div {
+      display: flex;
+      gap: 10px;
+
+      & input {
+        width: 50%;
+      }
+    }
   }
 }
