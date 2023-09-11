@@ -20,16 +20,18 @@ function Form() {
       <div className="expiration-date-cvc">
         <label htmlFor="expDate">
           Exp. Date (mm/yy)
-          <input
-            type="number"
-            name="expDate"
-            placeholder="MM"
-          />
-          <input
-            type="number"
-            name="expDate"
-            placeholder="YY"
-          />
+          <div>
+            <input
+              type="number"
+              name="expDate"
+              placeholder="MM"
+            />
+            <input
+              type="number"
+              name="expDate"
+              placeholder="YY"
+            />
+          </div>
         </label>
         <label htmlFor="cvc">
           cvc
