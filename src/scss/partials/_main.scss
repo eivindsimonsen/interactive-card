@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: $font-family;
 }
 
 main {
@@ -35,3 +36,25 @@ form {
   }
 }
 // form
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+
+  & > * {
+    margin: 10px 0px;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    padding: 13px 10px;
+    border-radius: 7px;
+    border: 1px solid $lightGrayishViolet;
+  }
+}
