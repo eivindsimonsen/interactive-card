@@ -1,11 +1,10 @@
-$main-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
-$error-red: hsl(0, 100%, 66%);
+$errorRed: hsl(0, 100%, 66%);
 
 $white: hsl(0, 0%, 100%);
 $lightGrayishViolet: hsl(270, 3%, 87%);
 $darkGrayishViolet: hsl(279, 6%, 55%);
 $veryDarkViolet: hsl(278, 68%, 11%);
-$button-hover: hsl(278, 94%, 30%);
+$lightViolet: hsl(278, 94%, 30%);
 
-$font-size: clamp(10px, 2.5vw, 14px);
-$font-family: "Space Grotesk", "sans-serif";
+$fontSize: clamp(10px, 2.5vw, 14px);
+$fontFamily: "Space Grotesk", "sans-serif";
