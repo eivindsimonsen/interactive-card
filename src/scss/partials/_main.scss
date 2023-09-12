@@ -23,16 +23,47 @@ form {
 // cards
 .card-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
-  gap: 30px;
+  margin-top: 80px;
+
+  @media (min-width: 1118px) {
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 0;
+  }
 
   img:nth-child(1) {
-    transform: translateX(-50px);
+    transform: translate(-30px, -54px);
+    z-index: 3;
+
+    @media (min-width: 1118px) {
+      transform: translateX(-50px);
+    }
   }
 
   img:nth-child(2) {
-    transform: translateX(50px);
+    transform: translateX(30px);
+
+    @media (min-width: 1118px) {
+      transform: translateX(50px);
+    }
+  }
+
+  img {
+    width: 250px;
+
+    @media (min-width: 575px) {
+      width: 350px;
+    }
+
+    @media (min-width: 1118px) {
+      width: 450px;
+    }
+
+    @media (min-width: 2000px) {
+      width: 600px;
+    }
   }
 }
 // form
@@ -46,6 +77,11 @@ form {
   color: $veryDarkViolet;
   text-transform: uppercase;
   letter-spacing: 5px;
+  margin: 0px auto;
+
+  @media (min-width: 1118px) {
+    margin: 0;
+  }
 
   & > * {
     margin: 16px 0px;
@@ -68,6 +104,10 @@ form {
     justify-content: space-between;
     gap: 10px;
 
+    & > * {
+      flex-basis: 50%;
+    }
+
     & div {
       display: flex;
       gap: 10px;
@@ -75,6 +115,24 @@ form {
       & input {
         width: 50%;
       }
+    }
+  }
+
+  button {
+    padding: 17px;
+    border-radius: 7px;
+    color: $white;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: clamp(10px, 2.5vw, 16px);
+    background-color: $veryDarkViolet;
+    border: none;
+    transition: background-color 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $button-hover;
+      transition: background-color 0.3s;
     }
   }
 }
