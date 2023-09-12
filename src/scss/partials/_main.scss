@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: $font-family;
+  font-family: $fontFamily;
 }
 
 main {
@@ -72,7 +72,7 @@ form {
   flex-direction: column;
   justify-content: center;
   max-width: 440px;
-  font-size: $font-size;
+  font-size: $fontSize;
   font-weight: 700;
   color: $veryDarkViolet;
   text-transform: uppercase;
@@ -84,7 +84,7 @@ form {
   }
 
   & > * {
-    margin: 16px 0px;
+    margin: 9px 0px;
   }
 
   label {
@@ -97,6 +97,13 @@ form {
     border-radius: 7px;
     border: 1px solid $lightGrayishViolet;
     margin-top: 8px;
+    font-size: clamp(10px, 2.5vw, 14px);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    &:focus-visible {
+      outline: 1px solid $lightViolet;
+    }
   }
 
   .expiration-date-cvc {
@@ -131,8 +138,22 @@ form {
 
     &:hover {
       cursor: pointer;
-      background-color: $button-hover;
+      background-color: $lightViolet;
       transition: background-color 0.3s;
     }
+  }
+
+  span {
+    font-size: clamp(10px, 2.5vw, 12px);
+    text-transform: initial;
+    letter-spacing: 1px;
+    color: $errorRed;
+    margin-top: 10px;
+    font-weight: 500;
+    opacity: 0;
+  }
+
+  .error-outline {
+    outline: 1px solid $errorRed;
   }
 }
