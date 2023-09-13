@@ -15,6 +15,38 @@ function Form() {
   const [expYearError, setExpYearError] = useState(false);
   const [cvcError, setCvcError] = useState(false);
 
+  const handleCardNumberChange = (e) => {
+    let cardNumber = e.target.value;
+
+    // Remove non-numeric characters
+    cardNumber = cardNumber.replace(/\D/g, "");
+
+    // Ensure that the input does not contain "e" or "." (decimal point)
+    cardNumber = cardNumber.replace(/[e.]/gi, "");
+
+    // Limit the input to 16 characters
+    if (cardNumber.length > 16) {
+      cardNumber = cardNumber.slice(0, 16);
+    }
+
+    // Format the card number with spaces every four characters
+    cardNumber = cardNumber.replace(/(\d{4})/g, "$1 ");
+
+    // Trim any leading or trailing spaces
+    cardNumber = cardNumber.trim();
+
+    // Validate the card number format (exactly 16 digits)
+    if (cardNumber.length !== 19) {
+      setCardNumberError(true);
+    } else {
+      setCardNumberError(false);
+    }
+
+    // Set the cardNumber state
+    setCardNumber(cardNumber);
+  };
+
+  // Handle submission, and check if all values are correct before submitting
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -24,25 +56,25 @@ function Form() {
       setNameError(false);
     }
 
-    if (cardNumber.length !== 16) {
+    if (cardNumber.length !== 19) {
       setCardNumberError(true);
     } else {
       setCardNumberError(false);
     }
 
-    if (expMonth.length !== 2) {
+    if (expMonth.length !== 2 || isNaN(expMonth)) {
       setExpMonthError(true);
     } else {
       setExpMonthError(false);
     }
 
-    if (expYear.length !== 2) {
+    if (expYear.length !== 2 || isNaN(expYear)) {
       setExpYearError(true);
     } else {
       setExpYearError(false);
     }
 
-    if (cvc.length !== 3) {
+    if (cvc.length !== 3 || isNaN(cvc)) {
       setCvcError(true);
     } else {
       setCvcError(false);
@@ -72,11 +104,11 @@ function Form() {
       <label htmlFor="cardNumber">
         Card number
         <input
-          type="number"
+          type="text"
           name="cardNumber"
           placeholder="e.g 1234 5678 9123 0000"
           value={cardNumber}
-          onChange={(e) => setCardNumber(e.target.value)}
+          onChange={handleCardNumberChange}
           className={cardNumberError ? "error-outline" : ""}
           inputMode="numeric"
         />
@@ -87,39 +119,42 @@ function Form() {
           Exp. Date (mm/yy)
           <div>
             <input
-              type="number"
+              type="text"
               name="expDate"
               placeholder="MM"
               value={expMonth}
               onChange={(e) => setExpMonth(e.target.value)}
               className={expMonthError ? "error-outline" : ""}
               inputMode="numeric"
+              maxLength={2}
             />
 
             <input
-              type="number"
+              type="text"
               name="expDate"
               placeholder="YY"
               value={expYear}
               onChange={(e) => setExpYear(e.target.value)}
               className={expYearError ? "error-outline" : ""}
               inputMode="numeric"
+              maxLength={2}
             />
           </div>
-          <span className={expMonthError || expYearError ? "show-span" : ""}>Cannot be blank</span>
+          <span className={expMonthError || expYearError ? "show-span" : ""}>Cannot be blank/wrong format</span>
         </label>
         <label htmlFor="cvc">
           cvc
           <input
-            type="number"
+            type="text"
             name="cvc"
             placeholder="e.g 123"
             value={cvc}
             onChange={(e) => setCvc(e.target.value)}
             className={cvcError ? "error-outline" : ""}
             inputMode="numeric"
+            maxLength={3}
           />
-          <span className={cvcError ? "show-span" : ""}>Cannot be blank</span>
+          <span className={cvcError ? "show-span" : ""}>Cannot be blank/wrong format</span>
         </label>
       </div>
       <button>Confirm</button>
