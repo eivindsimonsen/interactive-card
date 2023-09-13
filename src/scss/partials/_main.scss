@@ -153,6 +153,10 @@ form {
     opacity: 0;
   }
 
+  .show-span {
+    opacity: 1;
+  }
+
   .error-outline {
     outline: 1px solid $errorRed;
   }
