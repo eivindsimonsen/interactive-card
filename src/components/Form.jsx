@@ -72,13 +72,13 @@ function Form() {
       <label htmlFor="cardNumber">
         Card number
         <input
-          type="text"
+          type="number"
           name="cardNumber"
           placeholder="e.g 1234 5678 9123 0000"
           value={cardNumber}
           onChange={(e) => setCardNumber(e.target.value)}
           className={cardNumberError ? "error-outline" : ""}
-          maxLength={16}
+          inputMode="numeric"
         />
         <span className={cardNumberError ? "show-span" : ""}>Wrong format, numbers only</span>
       </label>
@@ -87,23 +87,23 @@ function Form() {
           Exp. Date (mm/yy)
           <div>
             <input
-              type="text"
+              type="number"
               name="expDate"
               placeholder="MM"
               value={expMonth}
               onChange={(e) => setExpMonth(e.target.value)}
               className={expMonthError ? "error-outline" : ""}
-              maxLength={2}
+              inputMode="numeric"
             />
 
             <input
-              type="text"
+              type="number"
               name="expDate"
               placeholder="YY"
               value={expYear}
               onChange={(e) => setExpYear(e.target.value)}
               className={expYearError ? "error-outline" : ""}
-              maxLength={2}
+              inputMode="numeric"
             />
           </div>
           <span className={expMonthError || expYearError ? "show-span" : ""}>Cannot be blank</span>
@@ -111,13 +111,13 @@ function Form() {
         <label htmlFor="cvc">
           cvc
           <input
-            type="text"
+            type="number"
             name="cvc"
             placeholder="e.g 123"
             value={cvc}
             onChange={(e) => setCvc(e.target.value)}
             className={cvcError ? "error-outline" : ""}
-            maxLength={3}
+            inputMode="numeric"
           />
           <span className={cvcError ? "show-span" : ""}>Cannot be blank</span>
         </label>
