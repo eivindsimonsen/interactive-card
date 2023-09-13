@@ -83,7 +83,11 @@ function Form() {
     // If all fields are valid, you can proceed with form submission
     if (name.length > 0 && cardNumber.length > 0 && expMonth.length > 0 && expYear.length > 0 && cvc.length > 0) {
       // Handle form submission here
-      console.log("Form submitted successfully!");
+      console.log("Name:", name);
+      console.log("Card Number:", cardNumber);
+      console.log("Expiration Month:", expMonth);
+      console.log("Expiration Year:", expYear);
+      console.log("CVC:", cvc);
     }
   };
 
