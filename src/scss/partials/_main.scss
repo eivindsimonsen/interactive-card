@@ -26,6 +26,8 @@ form {
   flex-direction: column-reverse;
   align-items: center;
   margin-top: 80px;
+  letter-spacing: 1.5px;
+  color: $white;
 
   @media (min-width: 1118px) {
     flex-direction: column;
@@ -33,7 +35,7 @@ form {
     margin-top: 0;
   }
 
-  img:nth-child(1) {
+  div:nth-child(1) img {
     transform: translate(-30px, -54px);
     z-index: 3;
 
@@ -42,7 +44,7 @@ form {
     }
   }
 
-  img:nth-child(2) {
+  div:nth-child(2) img {
     transform: translateX(30px);
 
     @media (min-width: 1118px) {
@@ -65,99 +67,83 @@ form {
       width: 600px;
     }
   }
-}
-// form
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 440px;
-  font-size: $fontSize;
-  font-weight: 700;
-  color: $veryDarkViolet;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  margin: 0px auto;
 
-  @media (min-width: 1118px) {
-    margin: 0;
+  .front-card,
+  .back-card {
+    position: relative;
   }
 
-  & > * {
-    margin: 9px 0px;
-  }
+  .front-card {
+    z-index: 100;
 
-  label {
-    display: flex;
-    flex-direction: column;
-  }
-
-  input {
-    padding: 15px 10px;
-    border-radius: 7px;
-    border: 1px solid $lightGrayishViolet;
-    margin-top: 8px;
-    font-size: clamp(10px, 2.5vw, 14px);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-
-    &:focus-visible {
-      outline: 1px solid $lightViolet;
-    }
-  }
-
-  .expiration-date-cvc {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-
-    & > * {
-      flex-basis: 50%;
+    & p {
+      margin: 0px;
     }
 
-    & div {
+    & .card-logo {
+      position: absolute;
+      z-index: 20;
+      left: 20px;
+      top: 10px;
+      width: 60px;
+
+      @media (min-width: 1118px) {
+        left: 40px;
+        top: 30px;
+        width: 80px;
+      }
+    }
+
+    &-details {
+      position: absolute;
+      bottom: 75px;
+      left: -5px;
+
+      @media (min-width: 1118px) {
+        bottom: 35px;
+      }
+    }
+
+    &-account-number {
+      font-size: 15px;
+      padding-bottom: 5px;
+
+      @media (min-width: 575px) {
+        font-size: 23px;
+        padding-bottom: 25px;
+      }
+
+      @media (min-width: 1118px) {
+        font-size: 30px;
+      }
+    }
+
+    &-name-exp {
       display: flex;
-      gap: 10px;
+      justify-content: space-between;
+      text-transform: uppercase;
 
-      & input {
-        width: 50%;
+      @media (max-width: 575px) {
+        font-size: 10px;
       }
     }
   }
 
-  button {
-    padding: 17px;
-    border-radius: 7px;
-    color: $white;
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-size: clamp(10px, 2.5vw, 16px);
-    background-color: $veryDarkViolet;
-    border: none;
-    transition: background-color 0.3s;
+  .back-card p {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    font-size: 13px;
 
-    &:hover {
-      cursor: pointer;
-      background-color: $lightViolet;
-      transition: background-color 0.3s;
+    @media (min-width: 575px) {
+      top: 68px;
+      right: 7px;
+      font-size: initial;
     }
-  }
 
-  span {
-    font-size: clamp(10px, 2.5vw, 12px);
-    text-transform: initial;
-    letter-spacing: 1px;
-    color: $errorRed;
-    margin-top: 10px;
-    font-weight: 500;
-    opacity: 0;
-  }
-
-  .show-span {
-    opacity: 1;
-  }
-
-  .error-outline {
-    outline: 1px solid $errorRed;
+    @media (min-width: 1118px) {
+      top: 94px;
+      right: 0;
+    }
   }
 }
