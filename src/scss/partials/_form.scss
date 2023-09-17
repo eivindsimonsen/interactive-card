@@ -1,0 +1,96 @@
+// form
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 440px;
+  font-size: $fontSize;
+  font-weight: 700;
+  color: $veryDarkViolet;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin: 0px auto;
+  padding: 0px 7px;
+
+  @media (min-width: 1118px) {
+    margin: 0;
+  }
+
+  & > * {
+    margin: 9px 0px;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    padding: 15px 10px;
+    border-radius: 7px;
+    border: 1px solid $lightGrayishViolet;
+    margin-top: 8px;
+    font-size: clamp(10px, 2.5vw, 14px);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    &:focus-visible {
+      outline: 1px solid $lightViolet;
+    }
+  }
+
+  .expiration-date-cvc {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    & > * {
+      flex-basis: 50%;
+    }
+
+    & div {
+      display: flex;
+      gap: 10px;
+
+      & input {
+        width: 50%;
+      }
+    }
+  }
+
+  button {
+    padding: 17px;
+    border-radius: 7px;
+    color: $white;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: clamp(10px, 2.5vw, 16px);
+    background-color: $veryDarkViolet;
+    border: none;
+    transition: background-color 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $lightViolet;
+      transition: background-color 0.3s;
+    }
+  }
+
+  span {
+    font-size: clamp(10px, 2.5vw, 12px);
+    text-transform: initial;
+    letter-spacing: 1px;
+    color: $errorRed;
+    margin-top: 10px;
+    font-weight: 500;
+    opacity: 0;
+  }
+
+  .show-span {
+    opacity: 1;
+  }
+
+  .error-outline {
+    outline: 1px solid $errorRed;
+  }
+}
