@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useContext } from "react";
+import { FormContext } from "../../context/FormContext";
 
-function Form() {
-  // Value handling
-  const [name, setName] = useState("");
-  const [cardNumber, setCardNumber] = useState("");
-  const [expMonth, setExpMonth] = useState("");
-  const [expYear, setExpYear] = useState("");
-  const [cvc, setCvc] = useState("");
+function Form({ setComplete }) {
+  // Use useContext to get the context state values, and destructure needed values
+  const useFormContext = useContext(FormContext);
+  const { name, setName, cardNumber, setCardNumber, expMonth, setExpMonth, expYear, setExpYear, cvc, setCvc } = useFormContext;
+
+  // Auto focus next input when filled references
+  const monthRef = useRef(null);
+  const yearRef = useRef(null);
+  const cvcRef = useRef(null);
+  const buttonRef = useRef(null);
 
   // Error handling
   const [nameError, setNameError] = useState(false);
@@ -44,6 +49,10 @@ function Form() {
 
     // Set the cardNumber state
     setCardNumber(cardNumber);
+
+    if (cardNumber.length === 19) {
+      monthRef.current.focus();
+    }
   };
 
   // Handle submission, and check if all values are correct before submitting
@@ -88,6 +97,8 @@ function Form() {
       console.log("Expiration Month:", expMonth);
       console.log("Expiration Year:", expYear);
       console.log("CVC:", cvc);
+
+      setComplete(true);
     }
   };
 
@@ -127,10 +138,16 @@ function Form() {
               name="expDate"
               placeholder="MM"
               value={expMonth}
-              onChange={(e) => setExpMonth(e.target.value)}
+              onChange={(e) => {
+                setExpMonth(e.target.value);
+                if (e.target.value.length === 2) {
+                  yearRef.current.focus();
+                }
+              }}
               className={expMonthError ? "error-outline" : ""}
               inputMode="numeric"
               maxLength={2}
+              ref={monthRef}
             />
 
             <input
@@ -138,10 +155,16 @@ function Form() {
               name="expDate"
               placeholder="YY"
               value={expYear}
-              onChange={(e) => setExpYear(e.target.value)}
+              onChange={(e) => {
+                setExpYear(e.target.value);
+                if (e.target.value.length === 2) {
+                  cvcRef.current.focus();
+                }
+              }}
               className={expYearError ? "error-outline" : ""}
               inputMode="numeric"
               maxLength={2}
+              ref={yearRef}
             />
           </div>
           <span className={expMonthError || expYearError ? "show-span" : ""}>Cannot be blank/wrong format</span>
@@ -153,15 +176,21 @@ function Form() {
             name="cvc"
             placeholder="e.g 123"
             value={cvc}
-            onChange={(e) => setCvc(e.target.value)}
+            onChange={(e) => {
+              setCvc(e.target.value);
+              if (e.target.value.length === 3) {
+                buttonRef.current.focus();
+              }
+            }}
             className={cvcError ? "error-outline" : ""}
             inputMode="numeric"
             maxLength={3}
+            ref={cvcRef}
           />
           <span className={cvcError ? "show-span" : ""}>Cannot be blank/wrong format</span>
         </label>
       </div>
-      <button>Confirm</button>
+      <button ref={buttonRef}>Confirm</button>
     </form>
   );
 }
