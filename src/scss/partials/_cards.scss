@@ -1,0 +1,133 @@
+// cards
+.card-container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-top: 80px;
+  letter-spacing: 1.5px;
+  color: $white;
+
+  @media (min-width: 1118px) {
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 0;
+  }
+
+  div:nth-child(1) img {
+    transform: translate(-30px, -54px);
+    z-index: 3;
+
+    @media (min-width: 1118px) {
+      transform: translateX(-50px);
+    }
+  }
+
+  div:nth-child(2) img {
+    transform: translateX(30px);
+
+    @media (min-width: 1118px) {
+      transform: translateX(50px);
+    }
+  }
+
+  img {
+    width: 250px;
+
+    @media (min-width: 575px) {
+      width: 350px;
+    }
+
+    @media (min-width: 1118px) {
+      width: 450px;
+    }
+
+    @media (min-width: 2000px) {
+      width: 600px;
+    }
+  }
+
+  .front-card,
+  .back-card {
+    position: relative;
+  }
+
+  .front-card {
+    z-index: 100;
+
+    & p {
+      margin: 0px;
+    }
+
+    & .card-logo {
+      position: absolute;
+      z-index: 20;
+      left: 20px;
+      top: 10px;
+      width: 60px;
+
+      @media (min-width: 1118px) {
+        left: 40px;
+        top: 30px;
+        width: 80px;
+      }
+    }
+
+    &-details {
+      position: absolute;
+      bottom: 75px;
+      left: -5px;
+      width: 200px;
+
+      @media (min-width: 575px) {
+        width: 290px;
+      }
+
+      @media (min-width: 1118px) {
+        bottom: 35px;
+        width: 360px;
+      }
+    }
+
+    &-account-number {
+      font-size: 15px;
+      padding-bottom: 5px;
+
+      @media (min-width: 575px) {
+        font-size: 23px;
+        padding-bottom: 25px;
+      }
+
+      @media (min-width: 1118px) {
+        font-size: 30px;
+      }
+    }
+
+    &-name-exp {
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+
+      @media (max-width: 575px) {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .back-card p {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    font-size: 13px;
+
+    @media (min-width: 575px) {
+      top: 68px;
+      right: 7px;
+      font-size: initial;
+    }
+
+    @media (min-width: 1118px) {
+      top: 94px;
+      right: 0;
+    }
+  }
+}
