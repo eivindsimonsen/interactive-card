@@ -99,6 +99,13 @@ function Form({ setComplete }) {
       console.log("CVC:", cvc);
 
       setComplete(true);
+
+      // reset the form
+      setName("");
+      setCardNumber("");
+      setExpMonth("");
+      setExpYear("");
+      setCvc("");
     }
   };
 
