@@ -24,7 +24,7 @@ function FrontCard() {
       <div className="front-card-details">
         <p className="front-card-account-number">{cardNumber ? cardNumber : "0000 0000 0000 0000"}</p>
         <div className="front-card-name-exp">
-          <p>{name ? name : "Jane Appleseed"}</p>
+          <p>{name ? name : "Ola Normann"}</p>
           <p>
             {expMonth ? expMonth : "00"}/{expYear ? expYear : "00"}
           </p>
