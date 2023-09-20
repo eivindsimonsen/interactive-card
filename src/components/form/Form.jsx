@@ -114,6 +114,7 @@ function Form({ setComplete }) {
       <label htmlFor="name">
         Cardholder name
         <input
+          id="name"
           type="text"
           name="name"
           placeholder="e.g Jane Appleseed"
@@ -126,6 +127,7 @@ function Form({ setComplete }) {
       <label htmlFor="cardNumber">
         Card number
         <input
+          id="cardNumber"
           type="text"
           name="cardNumber"
           placeholder="e.g 1234 5678 9123 0000"
@@ -141,6 +143,7 @@ function Form({ setComplete }) {
           Exp. Date (mm/yy)
           <div>
             <input
+              id="expDate"
               type="text"
               name="expDate"
               placeholder="MM"
@@ -158,6 +161,7 @@ function Form({ setComplete }) {
             />
 
             <input
+              id="expDate"
               type="text"
               name="expDate"
               placeholder="YY"
@@ -179,6 +183,7 @@ function Form({ setComplete }) {
         <label htmlFor="cvc">
           cvc
           <input
+            id="cvc"
             type="text"
             name="cvc"
             placeholder="e.g 123"
