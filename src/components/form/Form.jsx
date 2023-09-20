@@ -161,7 +161,7 @@ function Form({ setComplete }) {
             />
 
             <input
-              id="expDate"
+              id="expDateYear"
               type="text"
               name="expDate"
               placeholder="YY"
